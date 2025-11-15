@@ -2,46 +2,51 @@ name: Deploy Quartz Site to GitHub Pages
 
 on:
   push:
-    branches: [v4]  # 或您的目标分支
+    branches: [v4]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 检出代码
+      # 1. 检出仓库代码
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 设置Node.js环境（需v22+）
+      # 2. 设置 Node.js 环境（v22+）
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'  # 必须至少v22
+          node-version: '22'
           cache: 'npm'
 
-      # 安装依赖
+      # 3. 安装依赖
       - name: Install dependencies
         run: npm install
 
-      # 构建Quartz站点（**关键命令**）
+      # 4. 构建 Quartz 站点（输出到根目录）
       - name: Build site with Quartz CLI
-        run: npx quartz build  # 正确的构建命令
+        run: npx quartz build
 
-      # 部署到GitHub Pages
+      # 5. 部署到 GitHub Pages（修正 YAML 语法）
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # 关键修改：部署根目录的构建产物
-            # 新增 exclude：排除非构建文件（避免部署冗余文件）
-            exclude: |
-              .github/
-              content/
-              node_modules/
-              quartz/
-              .gitignore
-              package.json
-              package-lock.json
-              quartz.config.ts
-              README.md
+          publish_dir: ./  # 部署根目录的构建产物
+          # 修正 exclude 语法：竖线后缩进 2 格，每项前加 -
+          exclude: |
+            .github/
+            content/
+            node_modules/
+            quartz/
+            .gitignore
+            package.json
+            package-lock.json
+            quartz.config.ts
+            README.md
