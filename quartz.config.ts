@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "我的知识库",  // 可选：改成你想要的站点标题（比如和Obsidian仓库同名）
+    pageTitle: "zoot的知识海洋",  // 可选：改成你想要的站点标题（比如和Obsidian仓库同名）
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
