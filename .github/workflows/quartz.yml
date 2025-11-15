@@ -33,4 +33,15 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # Quartz默认输出到public目录
+          publish_dir: ./  # 关键修改：部署根目录的构建产物
+            # 新增 exclude：排除非构建文件（避免部署冗余文件）
+            exclude: |
+              .github/
+              content/
+              node_modules/
+              quartz/
+              .gitignore
+              package.json
+              package-lock.json
+              quartz.config.ts
+              README.md
