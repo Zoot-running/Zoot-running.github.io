@@ -34,9 +34,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public  # 只上传 public 目录（含 index.html、笔记等）
-          # 保留 README.md 到 gh-pages 根目录（追加上传，不覆盖）
-          include:
-            - README.md
 
   deploy:
     needs: build
