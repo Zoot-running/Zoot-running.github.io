@@ -10,25 +10,25 @@
     <link>https://quartz.jzhao.xyz/README</link>
     <guid>https://quartz.jzhao.xyz/README</guid>
     <description><![CDATA[ 这里是Zoot的个人博客，记录Zoot的技术成长。. ]]></description>
-    <pubDate>Sat, 15 Nov 2025 09:46:52 GMT</pubDate>
+    <pubDate>Sat, 15 Nov 2025 09:48:55 GMT</pubDate>
   </item><item>
     <title>基础知识</title>
     <link>https://quartz.jzhao.xyz/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/Git%E4%BD%BF%E7%94%A8/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86</link>
     <guid>https://quartz.jzhao.xyz/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/Git%E4%BD%BF%E7%94%A8/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86</guid>
     <description><![CDATA[ 1. 用户名与账户 Git 要求你配置用户名和邮箱，是为了在你每次提交（commit）代码或文件时，记录下是谁做出了这个修改。 Git 配置的用户名 / 邮箱 vs. ]]></description>
-    <pubDate>Sat, 15 Nov 2025 09:46:52 GMT</pubDate>
+    <pubDate>Sat, 15 Nov 2025 09:48:55 GMT</pubDate>
   </item><item>
     <title>本地插件安装</title>
     <link>https://quartz.jzhao.xyz/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/Obsidian%E4%BD%BF%E7%94%A8/%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85</link>
     <guid>https://quartz.jzhao.xyz/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/Obsidian%E4%BD%BF%E7%94%A8/%E6%9C%AC%E5%9C%B0%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85</guid>
     <description><![CDATA[ 有些插件是社区找不到的，需要自己安装。 从插件的 GitHub 仓库或作者提供的渠道，下载插件的压缩包，解压后得到插件文件夹（内含插件核心文件，一般是js，json，css等少数几个文件）。 找到 Obsidian 目标库的存储路径，进入库文件夹下的.obsidian文件夹，若该文件夹内无plugins文件夹，手动新建一个。 将解压好的插件文件夹复制到plugins文件夹中。 重启 Obsidian 软件，再进入设置中的社区插件页面，找到刚放入的插件，点击启用就能正常使用了 . ]]></description>
-    <pubDate>Sat, 15 Nov 2025 09:46:52 GMT</pubDate>
+    <pubDate>Sat, 15 Nov 2025 09:48:55 GMT</pubDate>
   </item><item>
     <title>README</title>
     <link>https://quartz.jzhao.xyz/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/README</link>
     <guid>https://quartz.jzhao.xyz/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/README</guid>
     <description><![CDATA[ 1. 本地知识管理 使用obsidian管理文档，drawio进行绘图，所有绘图文件放在同一文件夹下的.resource当中，插件列表如下： 名称介绍获取方式BRAT社区下载 2. ]]></description>
-    <pubDate>Sat, 15 Nov 2025 09:46:52 GMT</pubDate>
+    <pubDate>Sat, 15 Nov 2025 09:48:55 GMT</pubDate>
   </item>
     </channel>
   </rss>
