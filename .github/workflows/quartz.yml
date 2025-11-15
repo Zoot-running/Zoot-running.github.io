@@ -1,13 +1,11 @@
-name: Deploy Quartz Site to GitHub Pages
-
+name: Deploy Quartz to GitHub Pages
 on:
   push:
     branches: [v4]
   workflow_dispatch:
 
-# 明确权限（解决推送权限问题）
 permissions:
-  contents: write  # 允许读写分支（关键）
+  contents: write
   pages: write
   id-token: write
 
@@ -15,40 +13,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1. 检出仓库代码
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 确保拉取完整历史（Quartz 需用到）
 
-      # 2. 设置 Node.js 环境（v22+）
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: 22
+          cache: npm
 
-      # 3. 安装依赖
       - name: Install dependencies
         run: npm install
 
-      # 4. 构建 Quartz 站点（输出到根目录）
-      - name: Build site with Quartz CLI
-        run: npx quartz build
+      - name: Build Quartz site（输出到 public 目录）
+        run: npx quartz build  # 按配置输出到 public 目录
 
-      # 5. 部署到 GitHub Pages（修正参数：exclude → exclude_assets，数组格式）
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload build artifacts（仅上传构建产物）
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # 部署根目录构建产物
-          publish_branch: gh-pages
-          # 正确参数：exclude_assets（数组格式，每项前加 -）
-          exclude_assets: |
-            .github/**
-            content/**
-            node_modules/**
-            quartz/**
-            .gitignore
-            package.json
-            package-lock.json
-            quartz.config.ts
-            README.md
+          path: ./public  # 只上传 public 目录（含 index.html、笔记等）
+          # 保留 README.md 到 gh-pages 根目录（追加上传，不覆盖）
+          include:
+            - README.md
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages（官方组件，稳定无错）
+        id: deployment
+        uses: actions/deploy-pages@v4

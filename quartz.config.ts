@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "我的知识库",  // 可选：改成你想要的站点标题（比如和Obsidian仓库同名）
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -16,7 +16,8 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "https://zoot-running.github.io",  // 修正：必须是完整HTTPS地址（你的GitHub Pages域名）
+    output: "public",  // 关键添加：指定构建输出到public目录（对齐官方默认和工作流）
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
@@ -89,7 +90,7 @@ const config: QuartzConfig = {
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      // Plugin.CustomOgImages(),  // 可选：如果之前构建报错，可先注释掉（非核心插件）
     ],
   },
 }
