@@ -1,0 +1,36 @@
+name: Deploy Quartz Site to GitHub Pages
+
+on:
+  push:
+    branches: [v4]  # 或您的目标分支
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 设置Node.js环境（需v22+）
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'  # 必须至少v22
+          cache: 'npm'
+
+      # 安装依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 构建Quartz站点（**关键命令**）
+      - name: Build site with Quartz CLI
+        run: npx quartz build  # 正确的构建命令
+
+      # 部署到GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # Quartz默认输出到public目录
