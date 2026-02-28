@@ -7,3 +7,4 @@
 | [ctftime](https://ctftime.org/)                         |     |
 | [OWASP WebGoat](https://owasp.org/www-project-webgoat/) |     |
 | [vulnhub](https://www.vulnhub.com/)                     |     |
+| [portswigger](https://portswigger.net/web-security)     |     |
